@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {contains, filter, clone, has, isNil, type, omit} from 'ramda';
 /* global Plotly:true */
@@ -160,6 +161,14 @@ class PlotlyGraph extends Component {
                 }
             }
         });
+        gd.on('plotly_restyle', eventData => {
+            const restyleData = filterEventData(gd, eventData, 'restyle');
+            if (!isNil(restyleData)) {
+                if (setProps) {
+                    setProps({restyleData});
+                }
+            }
+        });
         gd.on('plotly_unhover', () => {
             if (clear_on_unhover) {
                 if (setProps) {
@@ -260,6 +269,14 @@ const graphPropTypes = {
      * when the user zooms or pans on the plot
      */
     relayoutData: PropTypes.object,
+
+     /**
+     * Data from latest restyle event which occurs
+     * when the user zooms or pans on the plot
+     * customisation by Aurelis Technology
+     * to make interactive callback on legend available for dash
+     */
+    restyleData: PropTypes.object,
 
     /**
      * Plotly `figure` object. See schema:
@@ -480,6 +497,7 @@ const graphDefaultProps = {
     hoverData: null,
     selectedData: null,
     relayoutData: null,
+    restyleDAta: null,
     figure: {data: [], layout: {}},
     animate: false,
     animation_options: {
