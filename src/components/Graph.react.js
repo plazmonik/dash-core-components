@@ -497,7 +497,7 @@ const graphDefaultProps = {
     hoverData: null,
     selectedData: null,
     relayoutData: null,
-    restyleDAta: null,
+    restyleData: null,
     figure: {data: [], layout: {}},
     animate: false,
     animation_options: {
