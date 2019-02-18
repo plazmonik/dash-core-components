@@ -20,6 +20,7 @@ If False, then the `hoverData` property will be equal to the
 data from the last point that was hovered over.
 - selectedData (dict; optional): Data from latest select event
 - relayoutData (dict; optional): Data from latest relayout event which occurs
+- restyleData (dict; optional): Datafrom latest restyle event which occurs
 when the user zooms or pans on the plot
 - figure (dict; optional): Plotly `figure` object. See schema:
 https://plot.ly/javascript/reference
@@ -88,12 +89,12 @@ the inner arrays have buttons config objects or names of default buttons
 If using an Mapbox Atlas server, set this option to '',
 so that plotly.js won't attempt to authenticate to the public Mapbox server."""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, clickData=Component.UNDEFINED, clickAnnotationData=Component.UNDEFINED, hoverData=Component.UNDEFINED, clear_on_unhover=Component.UNDEFINED, selectedData=Component.UNDEFINED, relayoutData=Component.UNDEFINED, figure=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, animate=Component.UNDEFINED, animation_options=Component.UNDEFINED, config=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'clickData', 'clickAnnotationData', 'hoverData', 'clear_on_unhover', 'selectedData', 'relayoutData', 'figure', 'style', 'className', 'animate', 'animation_options', 'config']
+    def __init__(self, id=Component.UNDEFINED, clickData=Component.UNDEFINED, clickAnnotationData=Component.UNDEFINED, hoverData=Component.UNDEFINED, clear_on_unhover=Component.UNDEFINED, selectedData=Component.UNDEFINED, relayoutData=Component.UNDEFINED, restyleData=Component.UNDEFINED, figure=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, animate=Component.UNDEFINED, animation_options=Component.UNDEFINED, config=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'clickData', 'clickAnnotationData', 'hoverData', 'clear_on_unhover', 'selectedData', 'relayoutData', 'restyleData', 'figure', 'style', 'className', 'animate', 'animation_options', 'config']
         self._type = 'Graph'
         self._namespace = 'dash_core_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'clickData', 'clickAnnotationData', 'hoverData', 'clear_on_unhover', 'selectedData', 'relayoutData', 'figure', 'style', 'className', 'animate', 'animation_options', 'config']
+        self.available_properties = ['id', 'clickData', 'clickAnnotationData', 'hoverData', 'clear_on_unhover', 'selectedData', 'relayoutData', 'restyleData', 'figure', 'style', 'className', 'animate', 'animation_options', 'config']
         self.available_wildcard_properties =            []
 
         _explicit_args = kwargs.pop('_explicit_args')
